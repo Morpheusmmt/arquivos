@@ -21,7 +21,7 @@ uploadBtn.addEventListener("click", () => {
   }
 
   // Enviar para o servidor
-  fetch("http://localhost:3000/upload", {
+  fetch("https://arquivos-lj99.onrender.com/upload", {
     method: "POST",
     body: formData,
   })
@@ -40,7 +40,7 @@ uploadBtn.addEventListener("click", () => {
 function loadFiles() {
   fileList.innerHTML = "";
   
-  fetch("http://localhost:3000/files")
+  fetch("https://arquivos-lj99.onrender.com/files")
     .then(response => response.json())
     .then(files => {
       files.forEach(file => {
@@ -71,7 +71,7 @@ function addFileToList(fileName) {
 
 // Excluir arquivo
 function deleteFile(fileName) {
-  fetch(`http://localhost:3000/files/${fileName}`, {
+  fetch(`https://arquivos-lj99.onrender.com/files/${fileName}`, {
     method: "DELETE",
   })
     .then(response => response.json())
@@ -87,7 +87,7 @@ function deleteFile(fileName) {
 
 // Baixar arquivo
 function downloadFile(fileName) {
-  fetch(`http://localhost:3000/files/${fileName}`)
+  fetch(`https://arquivos-lj99.onrender.com/files/${fileName}`)
     .then(response => response.blob())
     .then(blob => {
       const a = document.createElement("a");
